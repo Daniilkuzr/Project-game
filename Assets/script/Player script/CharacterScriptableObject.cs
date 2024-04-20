@@ -28,8 +28,8 @@ public class CharacterScriptableObject : ScriptableObject
     public float Might { get => might; private set => might = value; }
 
     [SerializeField]
-    float projectileSpeed;
-    public float ProjectileSpeed { get => projectileSpeed; private set => projectileSpeed = value; }
+    GameObject projectileSpeed;
+    public GameObject ProjectileSpeed { get => projectileSpeed; private set => projectileSpeed = value; }
 
     
 }

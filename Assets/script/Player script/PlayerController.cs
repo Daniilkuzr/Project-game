@@ -13,9 +13,22 @@ public class PlayerController : MonoBehaviour
     public float health;
     public Healthbar healthbar;
     public GameObject player;
+    public int Kill = 0;
+
+    public EXPBar expbar;
 
 
+    [SerializeField]
+    float currentExperience;
+    
+    public float maxExperince;
 
+
+    public int currentLevel=1;
+    public void KillMan(int kills)
+    {
+        Kill++;
+    }
 
     public void TakeDamage(float damage)
     {
@@ -24,12 +37,26 @@ public class PlayerController : MonoBehaviour
         healthbar.SetHealth(health);
     }
 
+    public void TakeEXP(float exp)
+    {
+        currentExperience += exp;
+        if(currentExperience>maxExperince)
+        {
+            currentLevel++;
+            currentExperience = 0;
+            maxExperince =maxExperince+maxExperince/10;
+        }
+        
+        expbar.SetEXP(currentExperience, maxExperince);
+    }
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         healthbar.maxHealth = health;
         healthbar.SetHealth(health);
+        expbar.SetEXP(currentExperience,maxExperince);
     }
 
     // Update is called once per frame

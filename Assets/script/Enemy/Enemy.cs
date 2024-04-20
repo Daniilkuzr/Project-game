@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour
     public float damage;
     public bool trig;
 
+    public int death=1;
+
+    public GameObject dropexp;
+
     private PlayerController pl;
 
     private float timeBtwShots;
@@ -106,8 +110,11 @@ public class Enemy : MonoBehaviour
 
         if(health<=0)
         {
+            Instantiate(dropexp, enemy.transform.position, transform.rotation);
             Destroy(gameObject);
+            pl.KillMan(death);
             Destroy(enemy);
+ 
         }
     }
 
