@@ -101,11 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54bfcdf0f8dee64d9cc0c9ec6c2b4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 20
   healthbar: {fileID: 0}
   enemy: {fileID: 0}
   damage: 20
   trig: 0
+  dropexp: {fileID: 0}
   StartTimeBtwShots: 2
 --- !u!114 &-1314212475151290864
 MonoBehaviour:

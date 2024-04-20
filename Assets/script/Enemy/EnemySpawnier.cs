@@ -32,23 +32,40 @@ public class EnemySpawnier : MonoBehaviour
 
     [Header("Spawner Attrbutes")]
     float spawnTimer;
-
+    public float waveInterval;
 
     void Start()
     {
         player = FindObjectOfType<PlayerController>().transform;
         CalculateWaveQuta();
-
+       
     }
 
 
     void Update()
     {
+        if(currentWaveCount <waves.Count && waves[currentWaveCount].spawnCount==0)
+        {
+            StartCoroutine(BeginNextWave());
+        }
+
         spawnTimer += Time.deltaTime;
         if(spawnTimer>=waves[currentWaveCount].spawnUnterval)
         {
             spawnTimer = 0f;
             SpawnEnemies();
+        }
+    }
+
+    IEnumerator BeginNextWave()
+    {
+        yield return new WaitForSeconds(waveInterval);
+
+        if(currentWaveCount <waves.Count-1)
+        {
+            currentWaveCount++;
+            CalculateWaveQuta();
+
         }
     }
 
