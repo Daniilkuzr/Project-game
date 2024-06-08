@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public float damage;
     public bool trig;
 
-    public int death=1;
+    public int death=0;
 
     public GameObject dropexp;
 
@@ -111,10 +111,12 @@ public class Enemy : MonoBehaviour
         if(health<=0)
         {
             Instantiate(dropexp, enemy.transform.position, transform.rotation);
+            KillScore.kills += 1;
             Destroy(gameObject);
             pl.KillMan(death);
+           
             Destroy(enemy);
- 
+            
         }
     }
 

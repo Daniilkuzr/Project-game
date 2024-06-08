@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public Healthbar healthbar;
     public GameObject player;
     public int Kill = 0;
+    public GameObject deathpanel;
 
     public EXPBar expbar;
 
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         if (health <= 0)
         {
+            deathpanel.SetActive(true);
             Destroy(gameObject);
             Destroy(player);
         }
