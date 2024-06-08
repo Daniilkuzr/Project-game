@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c126c1155eeca184695aae5b38f2ed05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exp: 10
+  exp: 40
   expbox: {fileID: 1910283472090916489}
   player: {fileID: 0}
